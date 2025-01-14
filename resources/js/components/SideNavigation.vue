@@ -2,11 +2,7 @@
     <nav class="bg-white w-64 min-h-screen p-6 shadow-md">
         <!-- Logo Section -->
         <div class="flex items-center pb-6 border-b border-gray-200 mb-6">
-            <img src="https://via.placeholder.com/40" alt="Po Leung Kuk Logo" class="w-10 h-10 mr-3">
-            <div class="text-sm text-gray-800">
-                <span class="block">保良局</span>
-                <span class="block">Po Leung Kuk</span>
-            </div>
+            <img src="/assets/plklogo.png" alt="Po Leung Kuk Logo" class="w-200 h-10 mr-3">
         </div>
 
         <!-- Navigation Menu -->
