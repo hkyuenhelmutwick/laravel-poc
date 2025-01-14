@@ -8,6 +8,8 @@
             :is-disabled="false"
             @click="goToStep(1)"
         />
+        
+        <StepArrow />
 
         <StepButton
             :stepNumber="2"
@@ -18,6 +20,8 @@
             @click="goToStep(2)"
         />
 
+        <StepArrow />
+
         <StepButton
             :stepNumber="3"
             label="Insert Vendor for Assessment"
@@ -27,13 +31,14 @@
             @click="goToStep(3)"
         />
 
+        <StepArrow />
+
         <StepButton
             :stepNumber="4"
             label="Overview"
             icon="PlayIcon"
             :is-active="currentStep === 4"
             :is-disabled="currentStep < 4"
-            :is-last="true"
             @click="goToStep(4)"
         />
     </div>
@@ -41,11 +46,13 @@
 
 <script>
 import StepButton from './StepButton.vue'
+import StepArrow from '../ui/StepArrow.vue'
 
 export default {
     name: 'TenderSteps',
     components: {
-        StepButton
+        StepButton,
+        StepArrow
     },
     props: {
         currentStep: {

@@ -115,6 +115,10 @@ export default {
             userGroups: []
         }
     },
+    created() {
+        // Add one user group by default when component is created
+        this.addUserGroup()
+    },
     methods: {
         addUserGroup() {
             this.userGroups.push({
@@ -129,6 +133,10 @@ export default {
         },
         removeUserGroup(index) {
             this.userGroups.splice(index, 1)
+            // If all groups are removed, add one back
+            if (this.userGroups.length === 0) {
+                this.addUserGroup()
+            }
         },
         addUser(group) {
             group.users.push({
