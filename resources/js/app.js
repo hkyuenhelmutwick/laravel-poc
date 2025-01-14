@@ -1,16 +1,26 @@
 import './bootstrap';
 import { createApp } from 'vue';
-import ExampleComponent from './components/ExampleComponent.vue';
+import { createRouter, createWebHistory } from 'vue-router';
+import Layout from './components/Layout.vue';
 
-// Create a new Vue application
-const app = createApp({});
+// Define routes
+const routes = [
+    { path: '/tender', component: () => import('./pages/Tender.vue') },
+    { path: '/tender-form-template', component: () => import('./pages/TenderFormTemplate.vue') },
+    { path: '/external-panel-interviewer', component: () => import('./pages/ExternalPanelInterviewer.vue') },
+    { path: '/technical-evaluation', component: () => import('./pages/TechnicalEvaluation.vue') },
+    { path: '/fee-evaluation', component: () => import('./pages/FeeEvaluation.vue') },
+    { path: '/tender-evaluation-score', component: () => import('./pages/TenderEvaluationScore.vue') },
+    { path: '/user', component: () => import('./pages/User.vue') },
+    { path: '/role', component: () => import('./pages/Role.vue') },
+    { path: '/function-permission', component: () => import('./pages/FunctionPermission.vue') },
+];
 
-// Register components
-// Example component registration:
-// import ExampleComponent from './components/ExampleComponent.vue';
-// app.component('example-component', ExampleComponent);
+const router = createRouter({
+    history: createWebHistory(),
+    routes
+});
 
-app.component('example-component', ExampleComponent);
-
-// Mount the application
+const app = createApp(Layout);
+app.use(router);
 app.mount('#app');
