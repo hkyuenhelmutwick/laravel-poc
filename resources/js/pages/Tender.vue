@@ -18,18 +18,26 @@
             @back="handleBack"
             @next="handleNext"
         />
+
+        <ActionButtons
+            @back="handleBack"
+            @save-draft="saveDraft"
+            @next="handleNext"
+        />
     </div>
 </template>
 
 <script>
 import TenderSteps from '../components/tender/TenderSteps.vue'
 import TenderForm from '../components/tender/TenderForm.vue'
+import ActionButtons from '../components/ui/ActionButtons.vue'
 
 export default {
     name: 'Tender',
     components: {
         TenderSteps,
-        TenderForm
+        TenderForm,
+        ActionButtons
     },
     data() {
         return {
@@ -59,21 +67,11 @@ export default {
             console.log('Saving draft:', formData)
         },
         handleBack() {
-            if (this.currentStep > 1) {
-                this.currentStep--
-            }
+            // Handle back navigation if needed
         },
-        handleNext(formData) {
-            // Validate form data
-            if (this.validateForm(formData)) {
-                if (this.currentStep < 4) {
-                    this.currentStep++
-                }
-            }
-        },
-        validateForm(formData) {
-            // Add validation logic here
-            return true
+        handleNext() {
+            // Navigate to TenderStep2
+            this.$router.push('/tender/evaluation')
         }
     }
 }
