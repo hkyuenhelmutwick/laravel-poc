@@ -1,12 +1,13 @@
 <template>
-    <div class="bg-white rounded-lg p-6 shadow-sm space-y-8">
-        <TenderSetup 
-            :form-data="form"
-            @update:form-data="updateForm"
-        />
+    <div>
+        <TenderSetupSection 
+            v-model="form"
+        /><br/>
+        
         <PanelInterviewer 
             v-model:user-groups="form.userGroups"
-        />
+        /><br/>
+        
         <ScoreSetup
             v-model:scores="form.scores"
         />
@@ -14,13 +15,13 @@
 </template>
 
 <script>
-import TenderSetup from './TenderSetup.vue'
+import TenderSetupSection from './TenderSetupSection.vue'
 import PanelInterviewer from './PanelInterviewer.vue'
 import ScoreSetup from './ScoreSetup.vue'
 
 export default {
     components: {
-        TenderSetup,
+        TenderSetupSection,
         PanelInterviewer,
         ScoreSetup
     },
@@ -33,14 +34,11 @@ export default {
                 closeTenderAt: '',
                 publishAt: '',
                 expireAt: '',
+                tenderType: 'Request for Proposal',
+                tenderAdmins: [],
                 userGroups: [],
                 scores: []
             }
-        }
-    },
-    methods: {
-        updateForm(newData) {
-            this.form = newData
         }
     }
 }

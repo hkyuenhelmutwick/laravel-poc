@@ -11,32 +11,34 @@
             @update:step="updateStep"
         />
 
-        <!-- Form Component -->
-        <TenderForm 
-            :initial-data="formData"
-            @save-draft="saveDraft"
-            @back="handleBack"
-            @next="handleNext"
-        />
+        <div class="bg-white rounded-lg p-6 shadow-sm space-y-8">
+            <!-- Form Component -->
+            <TenderStep1Form 
+                :initial-data="formData"
+                @save-draft="saveDraft"
+                @back="handleBack"
+                @next="handleNext"
+            />
 
-        <ActionButtons
-            @back="handleBack"
-            @save-draft="saveDraft"
-            @next="handleNext"
-        />
+            <ActionButtons
+                @back="handleBack"
+                @save-draft="saveDraft"
+                @next="handleNext"
+            />
+        </div>
     </div>
 </template>
 
 <script>
 import TenderSteps from '../components/tender/TenderSteps.vue'
-import TenderForm from '../components/tender/TenderForm.vue'
+import TenderStep1Form from '../components/tender/TenderStep1Form.vue'
 import ActionButtons from '../components/ui/ActionButtons.vue'
 
 export default {
     name: 'Tender',
     components: {
         TenderSteps,
-        TenderForm,
+        TenderStep1Form,
         ActionButtons
     },
     data() {
