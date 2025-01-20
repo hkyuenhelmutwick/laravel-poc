@@ -9,82 +9,46 @@
         <div class="px-6 py-4">
             <ul class="space-y-6">
                 <!-- Maintenance Section -->
-                <li>
-                    <span class="text-gray-600 font-medium uppercase text-xs tracking-wider block py-2">
-                        Maintenance
-                    </span>
-                    <ul class="ml-2 space-y-1">
-                        <li>
-                            <router-link 
-                                to="/tender"
-                                class="text-gray-800 hover:bg-blue-50 hover:text-blue-600 block px-3 py-2 rounded-md transition-colors"
-                                :class="{ 'bg-blue-50 text-blue-600 font-medium': isActive('/tender') }"
-                            >
-                                Tender
-                            </router-link>
-                        </li>
-                        <li v-for="(link, index) in maintenanceLinks" :key="index">
-                            <router-link 
-                                :to="link.path"
-                                class="text-gray-800 hover:bg-blue-50 hover:text-blue-600 block px-3 py-2 rounded-md transition-colors"
-                                :class="{ 'bg-blue-50 text-blue-600 font-medium': isActive(link.path) }"
-                            >
-                                {{ link.name }}
-                            </router-link>
-                        </li>
-                    </ul>
-                </li>
+                <nav-section 
+                    title="Maintenance"
+                    :links="maintenanceLinks"
+                />
 
                 <!-- Report Section -->
-                <li>
-                    <span class="text-gray-600 font-medium uppercase text-xs tracking-wider block py-2">
-                        Report
-                    </span>
-                    <ul class="ml-2 space-y-1">
-                        <li>
-                            <router-link 
-                                to="/tender-evaluation-score"
-                                class="text-gray-800 hover:bg-blue-50 hover:text-blue-600 block px-3 py-2 rounded-md transition-colors"
-                                :class="{ 'bg-blue-50 text-blue-600 font-medium': isActive('/tender-evaluation-score') }"
-                            >
-                                Tender Evaluation Score
-                            </router-link>
-                        </li>
-                    </ul>
-                </li>
+                <nav-section 
+                    title="Report"
+                    :links="reportLinks"
+                />
 
                 <!-- System Setting Section -->
-                <li>
-                    <span class="text-gray-600 font-medium uppercase text-xs tracking-wider block py-2">
-                        System Setting
-                    </span>
-                    <ul class="ml-2 space-y-1">
-                        <li v-for="(link, index) in settingLinks" :key="index">
-                            <router-link 
-                                :to="link.path"
-                                class="text-gray-800 hover:bg-blue-50 hover:text-blue-600 block px-3 py-2 rounded-md transition-colors"
-                                :class="{ 'bg-blue-50 text-blue-600 font-medium': isActive(link.path) }"
-                            >
-                                {{ link.name }}
-                            </router-link>
-                        </li>
-                    </ul>
-                </li>
+                <nav-section 
+                    title="System Setting"
+                    :links="settingLinks"
+                />
             </ul>
         </div>
     </nav>
 </template>
 
 <script>
+import NavSection from './SideNavigation/NavSection.vue'
+
 export default {
     name: 'SideNavigation',
+    components: {
+        NavSection
+    },
     data() {
         return {
             maintenanceLinks: [
+                { name: 'Tender', path: '/tender' },
                 { name: 'Tender Form Template', path: '/tender-form-template' },
                 { name: 'External Panel Interviewer', path: '/external-panel-interviewer' },
                 { name: 'Technical Evaluation', path: '/technical-evaluation' },
                 { name: 'Fee Evaluation', path: '/fee-evaluation' }
+            ],
+            reportLinks: [
+                { name: 'Tender Evaluation Score', path: '/tender-evaluation-score' }
             ],
             settingLinks: [
                 { name: 'User', path: '/user' },
