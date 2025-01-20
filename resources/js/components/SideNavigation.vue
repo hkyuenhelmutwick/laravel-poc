@@ -1,32 +1,25 @@
 <template>
-    <nav class="bg-white w-64 min-h-screen shadow-md">
-        <!-- Logo Section -->
+    <nav class="h-full overflow-y-auto bg-white">
         <div class="p-6 border-b border-gray-200">
-            <img src="/assets/plklogo.png" alt="Po Leung Kuk Logo" class="w-200 h-10 mr-3">
+            <img src="/assets/plklogo.png" alt="Logo"  />
         </div>
 
-        <!-- Navigation Menu -->
-        <div class="px-6 py-4">
-            <ul class="space-y-6">
-                <!-- Maintenance Section -->
-                <nav-section 
-                    title="Maintenance"
-                    :links="maintenanceLinks"
-                />
+        <ul class="p-4">
+            <nav-section 
+                title="Maintenance"
+                :links="maintenanceLinks"
+            />
 
-                <!-- Report Section -->
-                <nav-section 
-                    title="Report"
-                    :links="reportLinks"
-                />
+            <nav-section 
+                title="Report"
+                :links="reportLinks"
+            />
 
-                <!-- System Setting Section -->
-                <nav-section 
-                    title="System Setting"
-                    :links="settingLinks"
-                />
-            </ul>
-        </div>
+            <nav-section 
+                title="System Setting"
+                :links="settingLinks"
+            />
+        </ul>
     </nav>
 </template>
 

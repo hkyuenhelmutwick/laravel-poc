@@ -2,6 +2,9 @@ import './bootstrap';
 import { createApp } from 'vue';
 import { createRouter, createWebHistory } from 'vue-router';
 import Layout from './components/Layout.vue';
+import axios from 'axios';
+
+
 
 // Define routes
 const routes = [
